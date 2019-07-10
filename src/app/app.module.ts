@@ -1,13 +1,10 @@
 import { NgModule, ErrorHandler } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //Modules
 import { AppRoutingModule } from './app-routing.module';
 import { ConfigModule } from './core/modules/config/config.module';
+import { SharedModule } from './shared/shared.module';
 
 //Components
 import { AppComponent } from './app.component';
@@ -26,11 +23,7 @@ import { LocalStorageService } from './core/services/local-storage/local-storage
     AppComponent
   ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
+    SharedModule,
     AppRoutingModule
   ],
   providers: [
