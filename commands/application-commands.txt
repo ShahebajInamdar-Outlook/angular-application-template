@@ -1,4 +1,10 @@
+/* Commands executed in sequence for application functionality */
 npm install -g @angular/cli
 ng new angular-application-template
 npm install --save @angular/material @angular/cdk @angular/animations
 npm install --save hammerjs
+
+
+/* Commands for application run/build */
+ng serve --open
+ng build --prod
