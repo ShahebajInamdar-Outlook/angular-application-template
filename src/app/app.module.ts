@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 
 //Components
 import { AppComponent } from './app.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 
 //Services
 import { ConfigService } from './core/services/config/config.service';
@@ -20,7 +22,9 @@ import { LocalStorageService } from './core/services/local-storage/local-storage
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     SharedModule,
