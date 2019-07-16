@@ -17,9 +17,9 @@ import { HttpMethodTypeEnum } from '../../enums/http-method-type.enum';
 @Injectable()
 export class GlobalHttpService {
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  //http intercepter
+  // http intercepter
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
@@ -30,8 +30,8 @@ export class GlobalHttpService {
       }));
   }
 
-  //function to make a http call from various locations
-  //NOTE: Syntax to call -> var httpResponseData = await doHttpRequest(httpRequestData);
+  // function to make a http call from various locations
+  // NOTE: Syntax to call -> var httpResponseData = await doHttpRequest(httpRequestData);
   public async doHttpRequest(httpRequestData: HttpRequestModel): Promise<HttpResponseModel> {
     switch (httpRequestData.httpMethodTypeId) {
       case HttpMethodTypeEnum.get:
@@ -43,15 +43,15 @@ export class GlobalHttpService {
     }
   }
 
-  //Function to make http get request
+  // function to make http get request
   private async httpGetRequest(httpRequestData: HttpRequestModel): Promise<HttpResponseModel> {
-    var httpResponseData = new HttpResponseModel();
+    const httpResponseData = new HttpResponseModel();
     httpResponseData.isSuccess = false;
     httpResponseData.data = null;
     httpResponseData.isError = false;
     httpResponseData.error = null;
 
-    return this._httpClient.get(httpRequestData.url).toPromise().then(data => {
+    return this.httpClient.get(httpRequestData.url).toPromise().then(data => {
       httpResponseData.isSuccess = true;
       httpResponseData.data = data;
       return httpResponseData;
@@ -59,18 +59,18 @@ export class GlobalHttpService {
       httpResponseData.isError = true;
       httpResponseData.error = error;
       return httpResponseData;
-    })
+    });
   }
 
-  //Function to make http post request
+  // function to make http post request
   private async httpPostRequest(httpRequestData: HttpRequestModel): Promise<HttpResponseModel> {
-    var httpResponseData = new HttpResponseModel();
+    const httpResponseData = new HttpResponseModel();
     httpResponseData.isSuccess = false;
     httpResponseData.data = null;
     httpResponseData.isError = false;
     httpResponseData.error = null;
 
-    return this._httpClient.post(httpRequestData.url, httpRequestData.data).toPromise().then(data => {
+    return this.httpClient.post(httpRequestData.url, httpRequestData.data).toPromise().then(data => {
       httpResponseData.isSuccess = true;
       httpResponseData.data = data;
       return httpResponseData;
@@ -78,7 +78,7 @@ export class GlobalHttpService {
       httpResponseData.isError = true;
       httpResponseData.error = error;
       return httpResponseData;
-    })
+    });
   }
 
 }

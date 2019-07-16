@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//Modules
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { PipesModule } from './pipes/pipes.module';
 
