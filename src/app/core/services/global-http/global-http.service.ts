@@ -14,7 +14,9 @@ import { map, catchError } from 'rxjs/operators';
 import { HttpRequestModel, HttpResponseModel } from '../../models/http.model';
 import { HttpMethodTypeEnum } from '../../enums/http-method-type.enum';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class GlobalHttpService {
 
   constructor(private httpClient: HttpClient) { }

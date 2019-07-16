@@ -1,6 +1,8 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class GlobalErrorHandlerService implements ErrorHandler {
 
   constructor() { }
