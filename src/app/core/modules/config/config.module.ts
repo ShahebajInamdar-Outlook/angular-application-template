@@ -1,8 +1,8 @@
 import { ConfigService } from '../../services/config/config.service';
 import { APP_INITIALIZER } from '@angular/core';
 
-export function ConfigFactory(_configService: ConfigService) {
-    return () => _configService.load();
+export function ConfigFactory(configService: ConfigService) {
+    return () => configService.load();
   }
   
   export function initConfig() {

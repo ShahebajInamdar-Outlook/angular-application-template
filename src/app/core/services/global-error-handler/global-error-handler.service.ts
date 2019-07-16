@@ -5,11 +5,11 @@ export class GlobalErrorHandlerService implements ErrorHandler {
 
   constructor() { }
 
-  //function to catch all errors globally
+  // function to catch all errors globally
   handleError(error) {
     console.error(error);
 
-    //NOTE: use below line if wants to rethrow
+    // NOTE: use below line if wants to rethrow
     throw error;
   }
 }

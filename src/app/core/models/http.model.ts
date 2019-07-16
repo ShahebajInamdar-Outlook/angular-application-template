@@ -1,4 +1,3 @@
-//Enums
 import { HttpMethodTypeEnum } from '../enums/http-method-type.enum';
 
 export class HttpRequestModel {
