@@ -1,0 +1,5 @@
+/* Features added in application */
+1. Core services
+2. Shared module
+3. Angular materials
+4. Global http service to handle all HTTP call at single place
