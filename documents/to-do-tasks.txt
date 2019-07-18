@@ -1,0 +1,3 @@
+/* Features to be add */
+1. observables
+2. build prod with ahead of time compiler [ng build --prod --aot] and its impacts
