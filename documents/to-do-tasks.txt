@@ -1,3 +1,8 @@
 /* Features to be add */
 1. observables
 2. build prod with ahead of time compiler [ng build --prod --aot] and its impacts
+3. activate guard service
+4. some basic custom angular materials modules
+5. child routing
+6. load app-component dynamically when config json read completed
+7. lazy load child modules or feature modules

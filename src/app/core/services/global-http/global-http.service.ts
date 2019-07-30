@@ -48,10 +48,6 @@ export class GlobalHttpService {
   // function to make http get request
   private async httpGetRequest(httpRequestData: HttpRequestModel): Promise<HttpResponseModel> {
     const httpResponseData = new HttpResponseModel();
-    httpResponseData.isSuccess = false;
-    httpResponseData.data = null;
-    httpResponseData.isError = false;
-    httpResponseData.error = null;
 
     return this.httpClient.get(httpRequestData.url).toPromise().then(data => {
       httpResponseData.isSuccess = true;
@@ -67,10 +63,6 @@ export class GlobalHttpService {
   // function to make http post request
   private async httpPostRequest(httpRequestData: HttpRequestModel): Promise<HttpResponseModel> {
     const httpResponseData = new HttpResponseModel();
-    httpResponseData.isSuccess = false;
-    httpResponseData.data = null;
-    httpResponseData.isError = false;
-    httpResponseData.error = null;
 
     return this.httpClient.post(httpRequestData.url, httpRequestData.data).toPromise().then(data => {
       httpResponseData.isSuccess = true;
