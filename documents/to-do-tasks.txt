@@ -6,3 +6,5 @@
 5. child routing
 6. load app-component dynamically when config json read completed
 7. lazy load child modules or feature modules
+8. add default headers in http call
+9. create custom angular material modules
