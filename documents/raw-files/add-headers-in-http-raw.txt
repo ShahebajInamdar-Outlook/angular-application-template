@@ -1,0 +1,52 @@
+private async httpPostRequest(httpRequestData: HttpRequestModel): Promise<HttpResponseModel> {
+    const httpResponseData = new HttpResponseModel();
+
+    const headersData = new HttpHeaders().set('Content-Type', 'application/json').set('projectId', '100');
+
+    return this.httpClient.post(httpRequestData.url, httpRequestData.data, { headers: headersData }).toPromise().then(data => {
+      httpResponseData.isSuccess = true;
+      httpResponseData.data = data;
+      return httpResponseData;
+    }, error => {
+      httpResponseData.isError = true;
+      httpResponseData.error = error;
+      return httpResponseData;
+    });
+  }
+  
+  // http intercepter
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    request = request.clone({
+      headers: request.headers.set('Content-Type', 'application/json')
+      .set('projectid', '0')
+      .set('header3', 'header 3 value')
+  });
+
+    return next.handle(request).pipe(
+      map((event: HttpEvent<any>) => {
+        return event;
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error);
+      }));
+  }
+
+
+
+  // http intercepter
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    request = request.clone({
+      headers: request.headers.set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwYTExMmNkMjczY2UwNGUzOWVhZTkyMmVkOTI0YTRhIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NjQ2NjMzNTgsImV4cCI6MTU2NDc0OTc1OCwiaXNzIjoiaHR0cHM6Ly9kZXYtbG9naW4uYnNkc3BlY2xpbmsuY29tIiwiYXVkIjpbImh0dHBzOi8vZGV2LWxvZ2luLmJzZHNwZWNsaW5rLmNvbS9yZXNvdXJjZXMiLCJzcGVjbGlua19hcGkiLCJzaGFyZWRfc2VydmljZXMiLCJodWIiXSwiY2xpZW50X2lkIjoic2xlLXdlYiIsInN1YiI6IjM2ZWY3MjY5LTY0ZmEtNDUxZC1hODNkLWVkM2VlMzM2MGY5YSIsImF1dGhfdGltZSI6MTU2NDY2MzM1NSwiaWRwIjoibG9jYWwiLCJuYW1lIjoic2xjMDJfMUB2ZXJzaW9uc29sdXRpb25zLmNvbSIsImVtYWlsIjoic2xjMDJfMUB2ZXJzaW9uc29sdXRpb25zLmNvbSIsInNjb3BlIjpbIm9wZW5pZCIsImVtYWlsIiwic3BlY2xpbmtfYXBpIiwic2hhcmVkX3NlcnZpY2VzIiwiaHViIl0sImFtciI6WyJwd2QiXX0.fCbiRJcH2E0c_C9zleeOjbPkQvKKc8hWhenHgZjuJuCCJmt45e9du7aV7zRtaZQg9bTZLlOzteVspkW4qlhSDT2dTZSlZi2MVOdKKKHs0zrPXCuoujNXUT7h-Xmd2sgY4TkAhQzUwR8xpSUK6XS5wri8a4WLsK-Hhxw8ecqW5c6CIBaC7zF_024LUd77c6eSX5l4MmWDMhLrSN3a0IMYnHDlxKvhHz4mPSMF3iwb-26uLbBB2iLnBgYeP-BOpq4d8NrEL-PUfYLF8kQhfxa9Nbbr5nKJZ_6OUwu0txknjf1iGjmufY9OtkwYg2YnK2ucn4FQouXwSVkzyl5C50QiBg')
+        .set('customerId', '643')
+        .set('Param', 'Slc02')
+    });
+
+    return next.handle(request).pipe(
+      map((event: HttpEvent<any>) => {
+        return event;
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError(error);
+      }));
+  }
